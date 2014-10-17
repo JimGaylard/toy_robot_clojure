@@ -47,3 +47,10 @@
   [n s]
   (let [c (count s)]
     (take c (drop (mod n c) (cycle s)))))
+
+(defn validate
+  "Validates that the operation is allowed"
+  [robot board]
+  (let [{{x :x y :y} :coordinates} robot
+        [x-size y-size] board]
+    (and (< x x-size) (< y y-size))))
