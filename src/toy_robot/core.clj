@@ -24,7 +24,7 @@
 (defn move
   "Moves the robot forward one block in the current facing direction"
   [robot]
-  (let [{{x :x y :y} :coordinates
+  (let [{{:keys [x y]} :coordinates
         facing :facing} robot]
     (create-robot
       (map + [x y] (directions facing))
@@ -51,6 +51,6 @@
 (defn validate
   "Validates that the operation is allowed"
   [robot board]
-  (let [{{x :x y :y} :coordinates} robot
+  (let [{{:keys [x y]} :coordinates} robot
         [x-size y-size] board]
     (and (< x x-size) (< y y-size))))
